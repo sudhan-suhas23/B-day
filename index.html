@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.75" />
+    <title>Happy Birthday</title>
+    
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="birthdayCard">
+      <div class="cardFront">
+        <h3 class="happy">HAPPY BIRTHDAY</h3>
+        <div class="balloons">
+          <div class="balloon-1"></div>
+          <div class="balloon-2"></div>
+          <div class="balloon-3"></div>
+          <div class="balloon-4"></div>
+        </div>
+      </div>
+      <div class="cardInside">
+        
+        <h3 class="back">HAPPY BIRTHDAY</h3>
+        <p>
+            Hi ma, wishing you a happy life and healthy year ahead. Ondh olle kade treat kodsi.
+            Good luck and have fun.
+        </p>
+        <p class="name">-Sudhan Suhas</p>
+        <audio id="voiceMessage" src="rec96.mp3" preload="auto"></audio>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const card = document.querySelector('.birthdayCard');
+        const audio = document.getElementById('voiceMessage');
+
+        // 1st i've checked the audio whether it's there or not.
+        if (!card || !audio) {
+            console.error('Audio element not found.');
+            return;
+        }
+
+        // Play audio when the card is hovered over
+        card.addEventListener('mouseenter', () => {
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        });
+
+        // Pause and reset audio when the cursor leaves the card
+        card.addEventListener('mouseleave', () => {
+            audio.pause();
+            audio.currentTime = 0; //  Reset playback to start
+        });
+    });
+</script>
+
+
+<!-- <script>
+    document.querySelector('.birthdayCard').addEventListener('mouseenter', () => {
+        document.getElementById('voiceMessage').play();
+    });
+    document.querySelector('.birthdayCard').addEventListener('mouseleave', () => {
+        const audio = document.getElementById('voiceMessage');
+        audio.pause();
+        audio.currentTime = 0;
+    });
+</script> -->
+</body>
+</html>
