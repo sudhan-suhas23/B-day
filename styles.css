@@ -9,11 +9,19 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #239ac2;
+    /*background-color: #239ac2;*/
     margin: 0;
     position: relative;
   }
   
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+
   .birthdayCard {
     position: relative;
     width: 500px;
@@ -22,6 +30,8 @@ body {
     transform-style: preserve-3d;
     transform: perspective(2500px);
     transition: 1s;
+    margin-top: 40px;
+     z-index: 1;
   }
   
   .birthdayCard:hover {
@@ -79,7 +89,7 @@ body {
   .balloon-1 {
     background-color: rgba(255, 40, 90, 0.7);
     left: -10px;
-    top: 100px;
+    top: 140px;
   }
   
   .balloon-2 {
@@ -97,7 +107,7 @@ body {
   .balloon-4 {
     background-color: rgba(12, 122, 159, 0.7);
     left: 400px;
-    top: 100px;
+    top: 140px;
   }
   
   .balloon-1::before,
@@ -156,7 +166,7 @@ body {
   }
   
   p {
-    font-family: "Brush Script MT", cursive;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, cursive;
     margin: 60px;
     font-size: 36px;
     color: #333;
@@ -183,3 +193,38 @@ body {
   audio {
     display: none;
 }
+
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250vw;
+  height: 200vh;
+  object-fit:fill;
+  z-index: -1;
+  opacity: 0.6; /* adjust for transparency */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 0.15; }
+}
+
+#backgroundText {
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Brush Script MT', cursive;
+  font-size: 8vw;
+  color: #ffffff; /* solid white */
+  font-weight: bold;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0; /* ensures it's behind the card but above the video */
+  white-space: nowrap;
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* strong contrast shadow */
+  margin-top: 400px;
+}
+
+
